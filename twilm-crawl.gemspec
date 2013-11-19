@@ -8,9 +8,9 @@ Gem::Specification.new do |spec|
   spec.version       = Twilm::Crawl::VERSION
   spec.authors       = ["Fredrik Persen Fostvedt"]
   spec.email         = ["fpfostvedt@gmail.com"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
-  spec.homepage      = ""
+  spec.description   = %q{Twitter movie crawler using Anemone}
+  spec.summary       = %q{Twitter Movie Crawler}
+  spec.homepage      = "https://github.com/theminted/twilm-crawl"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
