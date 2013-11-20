@@ -1,24 +1,10 @@
-# Twilm::Crawl
+# TwilmCrawl
 
-TODO: Write a gem description
-
-## Installation
-
-Add this line to your application's Gemfile:
-
-    gem 'twilm-crawl'
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install twilm-crawl
+Crawler for twitter movie tweets using anemone and mongodb.
 
 ## Usage
 
-TODO: Write usage instructions here
+(not yet usable)
 
 ## Contributing
 

@@ -1,7 +1,7 @@
 require 'require_all'
 require 'anemone'
 
-module Twilm
+module TwilmCrawl
 	require_all 'models'
 
 	class Bot

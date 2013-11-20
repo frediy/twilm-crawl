@@ -1,4 +1,4 @@
-module Twilm
+module TwilmCrawl
 	class Scraper
 		def tweets_node_set_from_page(page)
 			page.doc.xpath("//li[@data-item-type='tweet']") rescue nil

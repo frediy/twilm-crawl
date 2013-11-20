@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'twilm/crawl/version'
+require 'twilm_crawl/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "twilm-crawl"
-  spec.version       = Twilm::Crawl::VERSION
+  spec.name          = "twilm_crawl"
+  spec.version       = TwilmCrawl::VERSION
   spec.authors       = ["Fredrik Persen Fostvedt"]
   spec.email         = ["fpfostvedt@gmail.com"]
   spec.description   = %q{Twitter movie crawler using Anemone}
