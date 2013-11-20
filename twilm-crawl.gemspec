@@ -26,5 +26,4 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency "anemone"
 
   spec.add_runtime_dependency "require_all"
-  spec.add_runtime_dependency "ruby-debug19"
 end
