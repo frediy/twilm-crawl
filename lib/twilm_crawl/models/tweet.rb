@@ -1,5 +1,3 @@
-require 'mongo_mapper'
-
 class Tweet
 	include MongoMapper::Document
 	key :body, String

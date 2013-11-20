@@ -1,6 +1,3 @@
-require 'uri'
-require 'mongo_mapper'
-
 class Movie
 	include MongoMapper::Document
 
