@@ -25,6 +25,7 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency "mongo_mapper"
   spec.add_runtime_dependency "nokogiri"
   spec.add_runtime_dependency "anemone"
+  spec.add_runtime_dependency "twitter"
 
   spec.add_runtime_dependency "require_all"
 end
