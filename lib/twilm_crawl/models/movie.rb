@@ -1,17 +1,22 @@
+require 'mongo_mapper'
+
 class Movie
 	include MongoMapper::Document
 
 	MAX_TWEETS_PER_MOVIE = 200
 
-	attr_accessible :title, :year, :tweets_count, :crawling
+	attr_accessible :title, :year, :tweets_count, :crawling, :bot_id
 
+	key :netflix_id, String
 	key :title, String
 	key :year, Integer
 
 	many :tweets
 	key :tweets_count, Integer, :default => 0
 
+	belongs_to :bot
 	key :crawling, Boolean, :default => false # needs_crawling, crawling or complete
+	key :finished, Boolean, :default => false
 
 	#
 	# Validations
@@ -54,13 +59,25 @@ class Movie
 		!crawling? && !needs_crawling?
 	end
 
-	def mark_as_being_crawled
-		self.crawling = true if needs_crawling?
+	def crawling!
+		self.crawling = true
 		save!
 	end
 
-	def mark_as_no_longer_being_crawled
+	def stop_crawling!
 		self.crawling = false
+		save!
+	end
+
+	def finish_crawl!
+		stop_crawling!
+		self.finished = true
+		save!
+	end
+
+	def add_tweet(tweet)
+		self.tweets << tweet
+		self.tweets_count += 1
 		save!
 	end
 
@@ -70,9 +87,8 @@ class Movie
 	# def self.one_with_less_tweets_than number_of_tweets
 	# 	first(:tweets_count.lte => number_of_tweets)
 	# end
-
 	def self.uncrawled
-		first(:crawling => false, :tweets_count.lte => MAX_TWEETS_PER_MOVIE)
+		first(:finished => false, :crawling => false, :tweets_count.lte => MAX_TWEETS_PER_MOVIE)
 	end
 
 	#
@@ -80,6 +96,6 @@ class Movie
 	#
 	def self.initialize_fields
 		set({ :tweets_count => { "$exists" => false } }, :tweets_count => 0)
-		set({ :crawling_state => { "$exists" => false } }, :crawling_state => "needs_crawling")
+		set({ :crawling => { "$exists" => false } }, :crawling => false)
 	end
 end
